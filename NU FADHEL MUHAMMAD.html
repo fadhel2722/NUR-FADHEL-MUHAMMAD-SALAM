@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nur Fadhel Muhammad Salam | Portofolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .badge {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 span {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bio {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        /* --- SECTION GENERAL --- */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* --- EXPERIENCE TIMELINE --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            padding-left: 2.5rem;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 25px;
+            width: 2px;
+            height: calc(100% + 1.5rem);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .time-meta {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .company {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* --- ACHIEVEMENTS (CARDS) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGNS --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Menyederhanakan mobile view */
+            section { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">NF<span>MS.</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#pengalaman">Pengalaman</a></li>
+                <li><a href="#pencapaian">Pencapaian</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Mahasiswa & Tech Enthusiast</span>
+                <h1>Halo, Saya <br><span>Nur Fadhel Muhammad Salam</span></h1>
+                <p class="hero-bio">
+                    Seorang mahasiswa Teknik Informatika yang berfokus pada pengembangan solusi digital inovatif. Tertarik pada dunia rekayasa perangkat lunak, analisis data, dan bagaimana teknologi dapat mempermudah kehidupan manusia sehari-hari. Berkomitmen tinggi untuk terus belajar dan beradaptasi di industri teknologi yang dinamis.
+                </p>
+                <a href="#pengalaman" class="btn">Lihat Portofolio</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pengalaman">
+        <div class="container">
+            <h2 class="section-title">Pengalaman Kerja</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="time-meta">Agt 2025 - Sekarang</div>
+                    <div class="job-title">Part-Time Full Stack Developer</div>
+                    <div class="company">Solusi Digital Nusantara • Remote</div>
+                    <p class="text-muted">Mengembangkan dan mengoptimalkan fitur-fitur pada platform e-learning internal perusahaan dengan menggunakan arsitektur modern berbasis Node.js dan React.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-meta">Mar 2025 - Jul 2025</div>
+                    <div class="job-title">UI/UX Design Intern</div>
+                    <div class="company">Creative Tech Studio • Jakarta</div>
+                    <p class="text-muted">Melakukan riset pengguna, membuat wireframe, serta merancang high-fidelity design menggunakan Figma untuk aplikasi mobile e-commerce.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-meta">Sep 2024 - Jan 2025</div>
+                    <div class="job-title">Asisten Laboratorium Komputer</div>
+                    <div class="company">Universitas Teknologi Fiktif • Kampus</div>
+                    <p class="text-muted">Membimbing adik tingkat dalam sesi praktikum Struktur Data dan Pemrograman Berorientasi Objek (PBO), serta membantu penilaian tugas mingguan.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="pencapaian">
+        <div class="container">
+            <h2 class="section-title">Pencapaian & Karir</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Juara 1 Hackathon Nasional</h3>
+                    <p>Meraih peringkat pertama dalam ajang "National Tech Innovation 2025" melalui inovasi aplikasi pelacak emisi karbon berbasis kecerdasan buatan.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Penerima Beasiswa Prestasi</h3>
+                    <p>Dianugerahi Beasiswa Unggulan Teknologi selama 4 semester berturut-turut atas rekam jejak akademik yang konsisten dan kontribusi organisasi.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📜</div>
+                    <h3>Sertifikasi Global Cloud</h3>
+                    <p>Berhasil menyelesaikan sertifikasi profesional tingkat internasional untuk arsitektur cloud computing tingkat dasar-menengah.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nur Fadhel Muhammad Salam. Dibuat dengan presisi elegan.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
